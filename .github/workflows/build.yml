@@ -34,7 +34,13 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
-
+      - name: Fix AnyKernel3 submodule
+        run: |
+          git submodule deinit -f AnyKernel3 || true
+          rm -rf .git/modules/AnyKernel3
+          rm -rf AnyKernel3
+          git clone --depth=1 https://github.com/osm0sis/AnyKernel3.git AnyKernel3
+          rm -rf AnyKernel3/.git
       - name: Install toolchain
         run: |
           sudo apt-get update -qq
