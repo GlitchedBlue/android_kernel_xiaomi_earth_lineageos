@@ -32,15 +32,14 @@ jobs:
       - name: Checkout kernel source
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: false
           fetch-depth: 0
-      - name: Fix AnyKernel3 submodule
+      - name: Setup submodules manually
         run: |
-          git submodule deinit -f AnyKernel3 || true
-          rm -rf .git/modules/AnyKernel3
-          rm -rf AnyKernel3
           git clone --depth=1 https://github.com/osm0sis/AnyKernel3.git AnyKernel3
           rm -rf AnyKernel3/.git
+          git clone --depth=1 https://github.com/KernelSU-Next/KernelSU-Next.git KernelSU-Next
+          git clone --depth=1 https://github.com/SukiSU-Ultra/SukiSU-Ultra.git SukiSU
       - name: Install toolchain
         run: |
           sudo apt-get update -qq
