@@ -9,7 +9,7 @@ on:
       variants:
         description: 'Space-separated variants to build (vanilla ksu-next sukisu ksu-next+susfs sukisu-ultra+susfs)'
         required: false
-        default: 'vanilla ksu-next sukisu ksu-next+susfs sukisu-ultra+susfs'
+        default: 'sukisu'
 
 # Cancel previous runs on same branch when a new push arrives
 concurrency:
